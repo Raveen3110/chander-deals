@@ -1,0 +1,652 @@
+ <!-- <?php 
+
+$errors = '';
+$myemail = 'chandlerdealsaz@gmail.com';//Put Your email address here.
+if(empty($_POST['first_name'])  || empty($_POST['last_name'])  || 
+   empty($_POST['email']) || 
+   empty($_POST['message']) || 
+   empty($_POST['phone']))
+{
+    $errors .= "\n Error: all fields are required";
+}
+
+
+if (isset($_POST['first_name']) && isset($_POST['last_name'])) {
+    $name = $_POST['first_name'].' '.$_POST['last_name']; 
+}
+if (isset($_POST['email'])) {
+    $email_address = $_POST['email']; 
+    if (!preg_match(
+        "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i", 
+        $email_address))
+        {
+            $errors .= "\n Error: Invalid email address";
+        }
+}
+if (isset($_POST['phone'])) {
+    $phone = $_POST['phone']; 
+}
+
+if (isset($_POST['message'])) {
+    $message = $_POST['message']; 
+}
+
+
+
+
+if( empty($errors))
+
+{
+
+$to = $myemail;
+
+$email_subject = "Connect With Us form submission: $name";
+
+$email_body = "Here are the details:<br> Name: $name <br> ".
+
+"Email: $email_address<br>".
+"Contact No: $phone<br>".
+"Subject: Connect With Us Form<br>".
+"Message: $message<br>";
+
+$host=$_SERVER['SERVER_NAME'];
+$ip=$_SERVER['SERVER_ADDR'];
+$from="chandlerdeal@$host";
+$headers = "Content-type:text/html;charset=UTF-8" . "\r\n";
+$headers .="From: $from" . "\r\n" . "Reply-To: chandlerdeal@$host" . "\r\n" . "X-Mailer: PHP/" . phpversion();
+
+$mail =mail($to,$email_subject,$email_body,$headers);
+
+$mail_status = false;
+
+if($mail) {
+    //redirect to the 'thank you' page
+    $mail_status = true;
+    // header('Location: about-us.html');
+}else {
+  echo "The email has failed!";
+}
+
+
+}
+
+?> -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
+  <meta property="og:site_name" content="CHANDLER DEALS - Liqudation Store">
+  <meta property="og:title" content="CHANDLER DEALS - Liqudation Store">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://chandlerdeals.com/">
+    <meta property="og:image" content="ChandlerShae.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="300">
+    <meta property="og:image:height" content="300">
+    <meta property="og:image:alt" content="The Open Graph logo">
+    <meta property="og:description" content="We sell branded merchandise 50%-90% discounted from large retail stores. Merchandise sold are clothes , home appliances, gadgets , and lots more!	" />
+    <meta prefix="fb: https://ogp.me/ns/fb#" property="fb:app_id" content="115190258555800">
+    <link rel="alternate" type="application/rdf+xml" href="https://ogp.me/ns/ogp.me.rdf">
+
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:locale:alternate" content="es_ES" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link href='https://fonts.googleapis.com/css?family=Merienda' rel='stylesheet'>
+		<link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+		 
+		 <!-- Description and Keyword  -->
+		<meta name="description" content="We sell branded merchandise 50%-90% discounted from large retail stores. Merchandise sold are clothes, home appliances, gadgets and lots more! " />
+        <meta name="keywords" content= "Shoping , clothing shop , best clothers,shopping site,cheap shoping ,Chandler deals,chandler,chandlerdeals,chandler Deal, shopping mart, shopping mall"/>
+   
+		<meta property="og:title" content="CHANDLER DEALS - Liqudation Store">
+
+          <!-- Fav icon  -->
+		<link rel="shortcut icon" type="image/x-icon" href="LOGO.png">
+    	<title>Chandler Deals - Liqudation Store</title>
+    	<!-- <link rel="icon" href="images/logo.png">	 -->
+		
+	</head>
+	<body data-spy="scroll" data-target=".navbar" data-offset="50">
+	  	<div id="Home"></div>
+	  		<!---Start navigation Bar -->
+	    	<nav class="navbar navbar-expand-lg navbar fixed-top  navbar-light bg-light">
+		 		<a class="navbar-brand" href="#Welcome">
+    				<img src="LOGO.png" width="60" height="50" class="d-inline-block" alt="Logo Of Chandler">
+					 <b>CHANDLER DEALS</b>
+		 		</a>
+		 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+		    		<span class="navbar-toggler-icon"></span>
+		 		</button>
+			  	<div class="collapse navbar-collapse" id="navbarText">
+			    	<ul class="navbar-nav ml-auto ">
+			      		<li class="nav-item">
+			        		<a class="nav-link" href="#Home"><b>Home</b></a>
+			      		</li>
+					    <li class="nav-item">
+					    	<a class="nav-link" href="#About"><b>About Us</b></a>
+					    </li>
+					    <!-- <li class="nav-item">
+					    	<a class="nav-link" href="#Menu">Menu</a>
+					    </li>
+					    -->
+					    <li class="nav-item">
+					    	<b><a class="nav-link" href="#OurLocation">Our Location</a></b>
+					    </li>
+						<li class="nav-item">
+					    	<a class="nav-link" href="#contact"><b> Contact Us</b></a>
+					    </li>
+					    <!-- <li class="nav-item">
+					    	<a href="it/index.html" class="language" rel="it-IT"><img src="images/italy.ico" class="flag" alt="Italiano" /></a>
+					    	<a href="index.html" class="language" rel="en-En"><img src="images/english.ico" class="flag" alt="English" /></a>
+					    </li> -->
+				    </ul>
+				</div>
+			</nav>
+			<!--- End Navigation Bar -->
+			<div class="jumbotron img-jumbo ">
+          <!-- <div class="container "> -->
+   
+         <h1 class="text-light text-center neww"> <b>Every Day Black Friday</b></h1>
+         <!-- <p class="text-light">These is example of jumbotron</p> -->
+         <!-- <div class="btn btn-primary">Like & Share</div> -->
+     
+
+        </div>
+		
+		  <!-- Date of 15th april  (Timer)-->
+		  <!-- <div class="coming-soon col-12">
+             <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 ">
+
+
+
+
+                          <h2><b>Grand Opening</b></h2>  
+						  <br><br>
+                            <h3>Grand Opening Ceremony of our store in <b>Chandler Deals</b> on <b>15 <sup>th</sup> April 2021</b>  </h3>
+                            <div id="timer" class="timer">
+                                <div class="days-wrapper">
+                                    <span class="days"></span> <br>days
+                                </div>
+                                <div class="hours-wrapper">
+                                      <span class="hours"></span><br>hours
+                                </div>
+                                <div class="minutes-wrapper">
+                                    <span class="minutes"></span> <br>minutes
+                                </div>
+                                <div class="seconds-wrapper">
+                                    <span class="seconds"></span> <br>seconds
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+		<!-- End Timer 15th april  -->
+
+		
+			<!--- Start Carousel -->
+			<!-- <div id="carouselExampleIndicators" class="carousel " data-ride="carousel">
+				<ol class="carousel-indicators">
+					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="act
+					<div class="jumbotron img-jumbo ">
+        <div class="container ">
+   
+        <h1 class="text-light"> Hello n Wellcome to my page</h1>
+        <p class="text-light">These is example of jumbotron</p>
+        <div class="btn btn-primary">Like & Share</div>
+     
+
+    </div>ive"></li>
+				    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+				    	<img class=" w-80 img-top img-slider" src="slider01.png" alt="First slide">
+						
+						<div class="carousel-caption">
+						    <h1 class="text-color-slider">Every Day Black Friday</h1>
+							<p>...</p>
+						</div>
+				    </div>
+				    <div class="carousel-item">
+				      	<img class="d-block w-80 img-top img-slider" src="NEWIMG/WhatsApp Image 2021-03-31 at 12.41.29 PM.jpeg" alt="Second slide">
+				      	<div class="carousel-caption">
+						    <h2>Traditional Italian Cuisine</h2>
+							<p>...</p>
+						</div>
+				    </div>
+				    <div class="carousel-item">
+				      	<img class="d-block w-80 container img-top img-slider" src="NEWIMG/sliderrr.jpeg" alt="Third slide">
+				      	<div class="carousel-caption">
+						    <h2>Selected Products</h2>
+							<p>...</p>
+						</div>
+				    </div>
+				</div>
+				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div> -->
+			<!--- End of Carousel -->
+			<!--- Restaurant-->
+		<div class="container">
+		 	<div class="row" id="About">
+	    		<div class="col navMenu">
+	     		 	<h2 class="text-center" ><b>~ About Us ~</b></h2>
+	    		</div>
+  			</div>
+			  <!-- padding: 50px 20px 30px 40px -->
+  			<div class="row bg-light" >
+  				<div class="col-md-6  ">
+  					<h2 class="text-center " style="padding: 50px 20px 30px 40px"><b>Offer's</b></h2>
+					  <p class="offer_text" style="padding: 0px 50px 10px 50px " >We sell branded merchandise <b>50%-90% discounted </b> from large retail stores. Merchandise sold are clothes (Men, women, children), shoes, home appliances, gadgets, consumer electronics, and lots more!</p>
+  				</div>
+  				<!-- <div class="col-md-6" data-aos="fade-up" style="padding: 50px 20px 30px 40px">
+  					<img class="img-fluid" src="Photos/hall.jpg"  alt="Pillo img">
+  				</div> -->
+				  <div id="demo" class="carousel caroFast slide col-md-6 item" data-ride="carousel" data-interval="2000">
+					<div class="carousel-inner ">
+					   <div class="carousel-item active " >
+							<img class="img-fluid" src="Photos/hall.jpg" alt="hall">
+							</div>
+							
+							<div class="carousel-item ">
+							<img class="img-fluid" src="Photos/Top_bag.jpg" alt="Slider-03">
+							</div>
+							<div class="carousel-item ">
+							<img class="img-fluid" src="Photos/TopHall.jpg" alt="Slider-04">
+							</div>
+							<div class="carousel-item ">
+							<img class="img-fluid" src="NEWIMG/top.jpeg" alt="Slider-05">
+							</div>
+  
+					   </div>
+  
+						</div>
+  			</div>
+  			
+
+
+			  <div class="row bg-light"><br></div>
+			  <div class="row bg-light" >
+  				<div id="demo" class="carousel caroFast slide col-md-6 item" data-ride="carousel" data-interval="2000">
+				  <div class="carousel-inner ">
+                     <div class="carousel-item active " >
+                          <img class="img-fluid" src="NEWIMG/slider-1.jpeg" alt="Slider-1">
+						  </div>
+						  
+						  <div class="carousel-item ">
+                          <img class="img-fluid" src="NEWIMG/ccccccccccc.jpeg" alt="Slider-03">
+						  </div>
+						  <div class="carousel-item ">
+                          <img class="img-fluid" src="NEWIMG/didi_slider.jpeg" alt="Slider-04">
+						  </div>
+						  <div class="carousel-item ">
+                          <img class="img-fluid" src="NEWIMG/slide.jpeg" alt="Slider-05">
+						  </div>
+
+                     </div>
+
+			    	  </div>
+
+
+					  <div class="col-md-6"><br>
+					  <ul class="about_list"  >
+                             <li>Consumer Electronic</li>
+                             <li>Home Applications</li>
+                             <li>Clothes (Men , Women & Children)	</li>
+                             <li>Gadgets</li>
+                             <li>Shoes</li>
+                             <li>Rugs</li>
+                             <li>Printer's</li>
+                             <li>Vacuum Cleaner</li>
+				    	</ul>
+
+
+  				</div> </div>
+
+				  <div class="row bg-light"><br></div>
+				  				  
+  			<div class="row bg-light">
+				
+  				<div class="col-md-6 ">
+					<ul class="about_list" style="padding: 50px 20px 100px 100px">
+						<li>Toy's and Bag's</li>
+						<li>Pillow</li>
+						<li>Utensil</li>
+						<li>Dinner Set</li>
+						<li>Photo Frame and Pot's</li>
+						<li>Bucket's</li>
+						
+				   </ul>
+  					<!-- <h3>Cuisine</h3>
+  					<p>Thanks for stopping by. We are the last authentic Italian restaurant in Milan, serving delicious Italian cuisine cooked by the best chefs. It only takes a few minutes to browse through our website and check out our menu. We hope you'll soon join us for a superb Italian culinary experience.</p>
+  					<h5>A Unique Experience</h5>
+  					<p>Thanks for stopping by. We are the last authentic Italian restaurant in Milan, serving delicious Italian cuisine cooked by the best chefs. It only takes a few minutes to browse through our website and check out our menu. We hope you'll soon join us for a superb Italian culinary experience.</p> -->
+  				</div>
+				  <div id="demo" class="carousel caroFast slide col-md-6 item" data-ride="carousel" data-interval="2000">
+					<div class="carousel-inner ">
+					   <div class="carousel-item active " >
+							<img class="img-fluid" src="Photos/Clothes.jpg" alt="Samsung">
+							</div>
+							
+							<div class="carousel-item ">
+							<img class="img-fluid" src="Photos/Toy.jpg" alt="Toys">
+							</div>
+							<div class="carousel-item ">
+							<img class="img-fluid" src="Photos/AvengerToy.jpg" alt="Spider Men">
+							</div>
+							<div class="carousel-item ">
+							<img class="img-fluid" src="Photos/Iron.jpg" alt="Home appucation">
+							</div>
+  
+					   </div>
+  
+						</div>
+	        </div>
+
+
+
+  				<!-- <div class="col-md-6" data-aos="fade-up">
+  					<img class="img-fluid" src="NEWIMG/Pillo.jpeg">
+  				</div>
+  		 	</div> -->
+
+
+
+
+
+  			<!--- End of Restaurant -->
+  			<!--- Start of Menu-->
+			<!-- <div class="row" id="Menu">
+				<div class="col navMenu">
+	     		 	<h2 class="text-center" >~ Menu ~</h2>
+				</div>
+			</div>
+			<div class="row bg-light">
+				<div class="col-md-4" data-aos="slide-up">
+					<div class="card view zoom">
+  						<img class="card-img-top img-fluid " src="images/meat-menu.jpg">
+					  	<div class="card-body">
+					  		<h5 class="card-title">~ Meat Menu ~</h5>
+					    	<ul class="list-group list-group-flush">
+							    <li class="list-group-item">Bocconcini di carne in nido di sfoglia</li>
+							    <li class="list-group-item">Bruschette con maiale al curry</li>
+							 	<li class="list-group-item">Uova al prosciutto</li>
+							 	<li class="list-group-item">Vitello tonnato</li>
+							 	<li class="list-group-item">Fesa di tacchino marinata con olive</li>
+							</ul>
+					  	</div>
+					</div>
+				</div>
+				<div class="col-md-4" data-aos="slide-up">
+					<div class="card">
+  						<img class="card-img-top img-fluid " src="images/fish-menu.jpg">
+					  	<div class="card-body">
+					  		<h5 class="card-title">~ Fish Menu ~</h5>
+					    	<ul class="list-group list-group-flush">
+							    <li class="list-group-item">Carpaccio di polpo</li>
+							    <li class="list-group-item">Cozze al verde</li>
+							 	<li class="list-group-item">Cocktail di gamberi</li>
+							 	<li class="list-group-item">Risotto alla crema di scampi</li>
+							 	<li class="list-group-item">Ravioli di pesce con crema di scampi</li>
+							</ul>
+					  	</div>
+					</div>
+				</div>
+				<div class="col-md-4" data-aos="slide-up">
+					<div class="card">
+  						<img class="card-img-top img-fluid" src="images/menu-vegetarian.jpg">
+					  	<div class="card-body">
+					  		<h5 class="card-title">~ Vegetarian Menu ~</h5>
+					    	<ul class="list-group list-group-flush">
+							    <li class="list-group-item">Parmigiana di melanzane</li>
+							    <li class="list-group-item">Strudel con ricotta e spinaci</li>
+							 	<li class="list-group-item">Polpette di spinaci e ricotta</li>
+							 	<li class="list-group-item">Frittata di patate al forno</li>
+							 	<li class="list-group-it Usem">Spaghetti con le polpettine vegetariane</li>
+							</ul>
+					  	</div>
+					</div>
+				</div>
+			</div> -->
+			<!--- End of Menu -->
+			<!--- Start of Our Location -->
+			<div class="row" id="OurLocation">
+				<div class="col navMenu">
+					<h2 class="text-center"><b>~ Our Location ~</b></h2>
+				</div>
+			</div>
+			<div class="row">
+				<div  class="col-md-9 col-12 map">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3334.011876320293!2d-111.94639558480411!3d33.31850498081202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b06a277d5ed65%3A0xdf54b6cd23b669bd!2s5955%20W%20Ray%20Rd%2C%20Chandler%2C%20AZ%2085226%2C%20USA!5e0!3m2!1sen!2sin!4v1617196272790!5m2!1sen!2sin" id="map2" ></iframe>
+				</div>
+				<div class="col-md-3 col-12 ">
+					<h3>Address:</h3>
+					<p>5955 W Ray Rd, Southeast corner of Kyrene Rd and Ray Rd	, Chandler , AZ , 85226</p>
+					<h3>Email:</h3>
+					<p>chandlerdealsaz@gmail.com</p>
+					<h3>Contact Number: </h3>
+					<p>623-444-2667</p>
+
+				</div>
+			</div>
+			<!--- End of Our Location -->
+			<!--- Start of Get To Touch (Contact)-->
+			<div class="row" id="contact">
+				<div class="col navMenu">
+					<h2 class="text-center"><b>~ Contact Us ~</b></h2>
+				</div>
+			</div>
+
+			<div class="row contact-img" id="contantForm">
+			<!-- <div class="row contactim"> -->
+				<div class=" col-12 reserve-container" data-aos="fade-up">
+					<!-- <img class="img-fluid image-reserve" src="NEWIMG/connnnn.png"> -->
+					<div class="reserve-text col-12 ">
+						<!-- <h1 class="text-center">Timetables</h1>
+						<div class="row">
+							<div class="col-6">
+							   	<h2 class="text-center">Lunch</h2>
+							    <h5 class="text-center">12:00 - 15:00</h5>
+							</div>
+							<div class="col-6">
+							    <h2 class="text-center">Dinner</h2>
+							    <h5 class="text-center">19:30 - 23:30</h5>
+							</div>
+						</div> -->
+						<form action="#contantForm" method="POST" class="paddingform" >
+							<div class="form-row "> 
+								  <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+									 
+									  <input type="text" class="form-control" id="inputDate" name="first_name" placeholder="First Name*"  required>
+								  </div>
+								  <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+									 
+									  <input type="text" class="form-control" id="inputName" name="last_name" placeholder="Last Name*"  required>
+								  </div>
+								  
+								  <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+									 
+									  <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email*"  required>
+								  </div>
+								  <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 ">
+								
+									<input type="number" class="form-control" id="inputTime" name="phone" placeholder="Phone*"  required>
+								</div>
+								  
+								  
+								  <div class="form-group col-md-12 col-12 col-xs-12 ">
+									  
+									<textarea class="form-control" rows="7" id="inputComment" name="message" placeholder="Message*" required ></textarea>
+								</div>
+							 </div>	
+							<div class="row justify-content-center ">
+								  <div class="col-md-4 col-md-offset-4">
+									  <button type="submit" class="btn btn-secondary btn-block ">Submit</button>
+								  </div>
+							  </div>
+                            <?php if(isset($mail_status) && $mail_status) {  ?>
+                                <div class="alert success col-xl-12 msg-success">
+                                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                                <strong>Contact form submitted successfully</strong> 
+                                </div>
+                            <?php }  ?>
+						</form>
+					</div>
+				</div>
+			</div>
+			
+			<!-- <div class="row bg-light">
+				<div class="col">
+					<form>
+						<div class="form-row">
+						  	<div class="form-group col-6">
+						  		<h3>Reserve</h3>
+						  		<label for="inputDate"> Date</label>
+						  		<input type="date" class="form-control" id="inputDate" placeholder="Data gg/mm/aaaa">
+						  	</div>
+						  	<div class="form-group col-6">
+						  		<h3>Details</h3>
+						  		<label for="inputName"> Name</label>
+						  		<input type="text" class="form-control" id="inputName" placeholder="Name">
+						  	</div>
+						  	<div class="form-group col-6">
+						  		<label for="inputTime"> Timetables</label>
+						  		<input type="time" class="form-control" id="inputTime" placeholder="Timetables">
+						  	</div>
+						  	<div class="form-group col-6">
+						  		<label for="inputEmail"> Email</label>
+						  		<input type="email" class="form-control" id="inputEmail" placeholder="Email">
+						  	</div>
+						  	<div class="form-group col-6">
+						  		<label for="inputNumber"> Number of Guests</label>
+						  		<input type="number" class="form-control" id="inputNumber" placeholder="Number of Guests">
+						  	</div>
+						  	<div class="form-group col-6">
+						  		<label for="inputCel"> Phone</label>
+						  		<input type="tel" class="form-control" id="inputCel" placeholder="Phone">
+						  	</div>
+  							<div class="form-group col-12">
+  								<label for="inputComment"> Further requests</label>
+								<textarea class="form-control" rows="4" id="inputComment" placeholder="Further requests"></textarea>
+							</div>
+					 	</div>
+						<div class="row">
+					  		<div class="col-md-4 col-md-offset-4">
+					  			<button type="submit" class="btn btn-secondary btn-block">Reserve</button>
+					  		</div>
+					  	</div>
+					</form>
+				</div>
+			</div> -->
+			<!--- End of Get To Touch (Contact) -->
+			<!-- <div class="jumbotron img-jumbo "> -->
+			<div class="row footer bg-light">
+				<div class="col col-12 col-md-4">
+					<h6 class="text-center">Follow us: <a class="social-icon" href="" ><i class="fab fa-facebook"></i></a> 
+						<a class="social-icon" href="" ><i class="fab fa-instagram"></i></a></h6>
+				</div>
+				<div class="col col-12 col-md-4">
+					<h6 class="text-center">Copyright &copy; 2021</h6>
+				</div>
+				<div class="col col-12 col-md-4">
+					<h6 class="text-center">Powered by: <a href="" >Raveen's Blog</a></h6>
+				</div>
+			</div>
+		</div>
+			<!-- </div> -->
+		<!-- <footer class="container">
+			<div class= "row only-mobile">
+				<div class="col-6">
+					<a class="btn btn-primary btn-block text-center" href="tel:++390000000"><i class="fa fa-phone" aria-hidden="true"></i> Call</a>
+				</div>
+				<div class="col-6">
+					<a class="btn btn-success btn-block text-center" href="https://api.whatsapp.com/send?phone=+390000000"><i class="fab fa-whatsapp" aria-hidden="true"></i> Whatsapp</a>
+				</div>
+			</div>
+		</footer> -->
+		<!-- <script src="js/jquery-3.3.1.min.js"></script> -->
+
+
+
+
+		<!-- javascript (Timer) -->
+		<!-- <script>
+			// Set the date we're counting down to
+var countDownDate = new Date("April 16, 2021 12:30:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+var timer = `<div class="days-wrapper">
+                              	<span class="days">`+days+`</span> <br>days
+                                </div>
+                                <div class="hours-wrapper">
+                  	                  <span class="hours">`+hours+`</span> <br>hours
+                                </div>
+                                <div class="minutes-wrapper">
+                                    <span class="minutes">`+minutes+`</span> <br>minutes
+                                </div>
+                                <div class="seconds-wrapper">
+                                    <span class="seconds">`+seconds+`</span> <br>seconds
+                                </div>`;
+								console.log(timer);
+
+document.getElementById("timer").innerHTML = timer;
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementsByClassName("timer").innerHTML = "EXPIRED";
+  }
+}, 1000);
+		</script> -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+		<!-- <script type="text/javascript" src="js/map.js"></script> -->
+		<script type="text/javascript" src="js/smooth-scroll.js"></script>
+		<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+        <script type="text/javascript" src="js/image-effect.js"></script>	
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFZjOV0KA68G2YAh-rn7I3qKqCQEh_Ja0&callback=myMap">
+	    </script>
+
+</body>
+</html>
